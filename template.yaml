@@ -7,7 +7,7 @@ metadata:
 spec:
   owner: development
   type: service
-  
+
   parameters:
     - title: Service Information
       required: [name, owner, description]
@@ -24,6 +24,11 @@ spec:
           type: string
           title: Description
           description: Short description of the service
+        environment:
+          type: string
+          title: Environment
+          description: Deployment environment for this service
+          enum: [dev, staging, prod]
 
     - title: Repository Location
       required: [repo]
@@ -48,6 +53,7 @@ spec:
           name: ${{ parameters.name }}
           owner: ${{ parameters.owner }}
           description: ${{ parameters.description }}
+          environment: ${{ parameters.environment }}
           destination:
             repo: ${{ parameters.repo }}
             owner: cprabhatm

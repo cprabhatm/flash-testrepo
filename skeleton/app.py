@@ -7,7 +7,7 @@ request_count = Counter('request_count', 'Total request count')
 @app.route('/')
 def home():
     request_count.inc()
-    return "Hello from ${{ values.name }} service!"
+    return "Hello from ${{ values.name }} service from ${{ values.environment }} !"
 
 @app.route('/metrics')
 def metrics():
